@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Detail of your FacebookFeedAd #{{ ad.id }}{% endblock %}
+
+{% block body %}
+    <table>
+        <tbody>
+            <tr>
+                <th>Headline</th>
+                <td>{{ ad.headline }}</td>
+            </tr>
+            <tr>
+                <th>MainText</th>
+                <td>{{ ad.mainText }}</td>
+            </tr>
+            <tr>
+                <th>URL</th>
+                <td>{{ ad.linkUrl }}</td>
+            </tr>
+            <tr>
+                <th>Image URL</th>
+                <td><img src="{{ ad.imageUrl }}"></td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

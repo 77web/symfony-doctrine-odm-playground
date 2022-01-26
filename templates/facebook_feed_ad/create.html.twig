@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register your FacebookFeedAd{% endblock %}
+{% form_theme form 'form_table_layout.html.twig' %}
+
+{% block body %}
+{{ form_start(form) }}
+{{ form_widget(form) }}
+    <button type="submit">Register</button>
+{{ form_end(form) }}
+{% endblock %}
