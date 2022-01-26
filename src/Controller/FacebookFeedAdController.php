@@ -10,6 +10,7 @@ use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\RouterInterface;
 
@@ -34,8 +35,13 @@ class FacebookFeedAdController extends AbstractController
     }
 
     #[Route('/facebook/feed/ad/{id}', name: 'facebook_feed_ad_show', methods: ['GET'])]
-    public function show(FacebookFeedAd $data): Response
+    public function show(string $id, DocumentManager $dm): Response
     {
+        $data = $dm->find(FacebookFeedAd::class, $id);
+        if (!$data) {
+            throw new NotFoundHttpException();
+        }
+
         return $this->render('facebook_feed_ad/show.html.twig', [
             'ad' => $data,
         ]);
