@@ -9,7 +9,7 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 class FacebookFeedAd
 {
     #[MongoDB\Id(strategy: "AUTO")]
-    private int $id;
+    private string $id;
 
     #[MongoDB\Field(type: "string")]
     private ?string $headline;
@@ -24,9 +24,9 @@ class FacebookFeedAd
     private ?string $imageUrl;
 
     /**
-     * @return int
+     * @return string
      */
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
     }
