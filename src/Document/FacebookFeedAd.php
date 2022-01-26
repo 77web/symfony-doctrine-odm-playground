@@ -9,24 +9,24 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 class FacebookFeedAd
 {
     #[MongoDB\Id(strategy: "AUTO")]
-    private string $id;
+    private ?string $id = null;
 
     #[MongoDB\Field(type: "string")]
-    private ?string $headline;
+    private ?string $headline = null;
 
     #[MongoDB\Field(type: "string")]
-    private ?string $mainText;
+    private ?string $mainText = null;
 
     #[MongoDB\Field(type: "string")]
-    private ?string $linkUrl;
+    private ?string $linkUrl = null;
 
     #[MongoDB\Field(type: "string")]
-    private ?string $imageUrl;
+    private ?string $imageUrl = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
