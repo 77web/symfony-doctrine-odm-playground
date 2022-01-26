@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Detail of your GoogleResponsiveSearchAd #{{ ad.id }}{% endblock %}
+
+{% block body %}
+    <table>
+        <tbody>
+            <tr>
+                <th>Headlines</th>
+                <td>{{ ad.headlines|join(' | ') }}</td>
+            </tr>
+            <tr>
+                <th>Descriptions</th>
+                <td>{{ ad.descriptions|join(constant('PHP_EOL'))|nl2br }}</td>
+            </tr>
+            <tr>
+                <th>URL</th>
+                <td>{{ ad.finalUrl }}</td>
+            </tr>
+            <tr>
+                <th>Display URL</th>
+                <td>{{ ad.displayUrl }}</td>
+            </tr>
+            <tr>
+                <th>Registered at</th>
+                <td>{{ ad.registeredAt|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

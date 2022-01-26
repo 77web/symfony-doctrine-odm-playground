@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register your GoogleResponsiveSearchAd{% endblock %}
+{% form_theme form 'form_table_layout.html.twig' %}
+
+{% block body %}
+{{ form_start(form) }}
+<table>
+    {% set headline_row = form_row(form.headlines.vars.prototype) %}
+    {{ headline_row|replace({'__name__label__': 'Headline1', '__name__': '0'})|raw }}
+    {{ headline_row|replace({'__name__label__': 'Headline2','__name__': '1'})|raw }}
+
+    {% set description_row = form_row(form.descriptions.vars.prototype) %}
+    {{ description_row|replace({'__name__label__': 'Description1','__name__': '0'})|raw }}
+    {{ description_row|replace({'__name__label__': 'Description2','__name__': '1'})|raw }}
+
+    {{ form_row(form.finalUrl) }}
+    {{ form_row(form.path1) }}
+    {{ form_row(form.path2) }}
+</table>
+    <button type="submit">Register</button>
+</form>
+{% endblock %}

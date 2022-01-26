@@ -113,6 +113,17 @@ class GoogleResponsiveSearchAd extends AdCreative
         return $this;
     }
 
+    public function getDisplayUrl(): string
+    {
+        $host = parse_url($this->finalUrl, PHP_URL_HOST);
+
+        return implode('/', array_filter([
+            $host,
+            $this->path1,
+            $this->path2,
+        ]));
+    }
+
     public function getType(): string
     {
         return 'google_responsive_search';
