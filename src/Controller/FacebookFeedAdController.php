@@ -22,7 +22,9 @@ class FacebookFeedAdController extends AbstractController
         $form = $formFactory->createNamed('', FacebookFeedAdType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            /** @var FacebookFeedAd $data */
             $data = $form->getData();
+            $data->setRegisteredAt(new \DateTimeImmutable());
             $dm->persist($data);
             $dm->flush();
 

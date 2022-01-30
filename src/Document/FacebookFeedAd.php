@@ -6,11 +6,8 @@ namespace App\Document;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
 #[MongoDB\Document]
-class FacebookFeedAd
+class FacebookFeedAd extends AdCreative
 {
-    #[MongoDB\Id(strategy: "AUTO")]
-    private ?string $id = null;
-
     #[MongoDB\Field(type: "string")]
     private ?string $headline = null;
 
@@ -22,14 +19,6 @@ class FacebookFeedAd
 
     #[MongoDB\Field(type: "string")]
     private ?string $imageUrl = null;
-
-    /**
-     * @return string|null
-     */
-    public function getId(): ?string
-    {
-        return $this->id;
-    }
 
     /**
      * @return string|null
@@ -101,5 +90,10 @@ class FacebookFeedAd
     {
         $this->imageUrl = $imageUrl;
         return $this;
+    }
+
+    public function getType(): string
+    {
+        return 'facebook_feed';
     }
 }

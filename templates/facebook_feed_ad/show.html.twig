@@ -21,6 +21,10 @@
                 <th>Image URL</th>
                 <td><img src="{{ ad.imageUrl }}"></td>
             </tr>
+            <tr>
+                <th>Registered at</th>
+                <td>{{ ad.registeredAt|date('Y-m-d H:i:s') }}</td>
+            </tr>
         </tbody>
     </table>
 {% endblock %}
